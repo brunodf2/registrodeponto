@@ -4,6 +4,7 @@ import com.bruno.pontointeligente.documents.Funcionario
 import com.bruno.pontointeligente.enums.PerfilEnum
 import com.bruno.pontointeligente.repositories.FuncionarioRepository
 import com.bruno.pontointeligente.utils.SenhaUtils
+import org.bson.types.ObjectId
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -28,7 +29,7 @@ class FuncionarioServiceImplTest {
     @BeforeEach
     fun setUp() {
         funcionario = Funcionario(
-                id = "1",
+                id = ObjectId.get().toHexString(),
                 nome = "João da Silva",
                 cpf = "12345678900",
                 email = "joao.silva@example.com",
@@ -67,7 +68,7 @@ class FuncionarioServiceImplTest {
 
     @Test
     fun `deve buscar funcionario pelo ID`() {
-        `when`(funcionarioRepository?.findById(funcionario.id.toString())).thenReturn(Optional.of(funcionario))
+        `when`(funcionarioRepository?.findById(funcionario.id!!)).thenReturn(Optional.of(funcionario))
 
         val resultado = funcionarioService?.buscarPorId(funcionario.id.toString())
 

@@ -51,6 +51,8 @@ class EmpresaServiceImplTest {
 
         val result = empresaService.persistir(empresa)
 
+        println(result)
+
         assertNotNull(result)
         assertEquals(empresa, result)
     }

@@ -3,6 +3,7 @@ package com.bruno.pontointeligente.services.Impl
 import com.bruno.pontointeligente.documents.Lancamento
 import com.bruno.pontointeligente.enums.TipoEnum
 import com.bruno.pontointeligente.repositories.LancamentoRepository
+import org.bson.types.ObjectId
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.BeforeEach
@@ -34,7 +35,7 @@ class LancamentoServiceImplTest {
     @BeforeEach
     fun setUp() {
         lancamento = Lancamento(
-                id = "1",
+                id = ObjectId.get().toHexString(),
                 data = Date(),
                 tipo = TipoEnum.INICIO_TRABALHO,
                 descricao = "Teste de lançamento",
