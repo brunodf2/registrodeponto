@@ -2,6 +2,7 @@ package com.bruno.pontointeligente.dtos
 
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotEmpty
+import org.bson.types.ObjectId
 import org.hibernate.validator.constraints.Length
 import org.hibernate.validator.constraints.br.CNPJ
 import org.hibernate.validator.constraints.br.CPF
@@ -32,5 +33,5 @@ data class CadastroPJDto (
         @get:Length(min = 5, max = 200, message = "Razão social deve conter entre 5 e 200 caracteres.")
         val razaoSocial: String = "",
 
-        val id: String? = null
+        var id: String? = ObjectId().toHexString()
 )

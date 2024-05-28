@@ -78,6 +78,8 @@ class LancamentoServiceImplTest {
 
         val resultado = lancamentoService?.persistir(lancamento)
 
+        println(lancamento)
+
         assertEquals(lancamento, resultado)
     }
 

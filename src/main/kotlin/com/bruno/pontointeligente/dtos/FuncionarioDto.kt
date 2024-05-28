@@ -1,6 +1,7 @@
 package com.bruno.pontointeligente.dtos
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotEmpty
+import org.bson.types.ObjectId
 import org.hibernate.validator.constraints.Length
 
 data class FuncionarioDto (
@@ -17,5 +18,5 @@ data class FuncionarioDto (
         val valorHora: String? = null,
         val qtdHorasTrabalhoDia: String? = null,
         val qtdHorasAlmoco: String? = null,
-        val id: String? = null
+        var id: String? = ObjectId().toHexString()
 )

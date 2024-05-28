@@ -2,6 +2,7 @@ package com.bruno.pontointeligente.dtos
 
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotEmpty
+import org.bson.types.ObjectId
 import org.hibernate.validator.constraints.Length
 import org.hibernate.validator.constraints.br.CNPJ
 import org.hibernate.validator.constraints.br.CPF
@@ -33,5 +34,5 @@ data class CadastroPFDto (
         val valorHora: String? = null,
         val qtdHorasTrabalhoDia: String? = null,
         val qtdHorasAlmoco: String? = null,
-        val id: String? = null
+        var id: String? = ObjectId().toHexString()
 )

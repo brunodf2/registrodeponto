@@ -1,6 +1,7 @@
 package com.bruno.pontointeligente.dtos
 
 import jakarta.validation.constraints.NotEmpty
+import org.bson.types.ObjectId
 
 data class LancamentoDto (
         @get:NotEmpty(message = "Data não pode ser vazia.")
@@ -12,5 +13,5 @@ data class LancamentoDto (
         val descricao: String? = null,
         val localizacao: String? = null,
         val funcionarioId: String? = null,
-        var id: String? = null
+        var id: String? = ObjectId().toHexString()
 )
